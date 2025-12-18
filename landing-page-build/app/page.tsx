@@ -540,7 +540,7 @@ function StoryChapter({
   visual: React.ReactNode
   progress: any
 }) {
-  const opacity = useTransform(progress, [0, 0.15, 0.85, 1], [0, 1, 1, 0])
+  const opacity = useTransform(progress, [0, 0.25, 0.75, 1], [0, 1, 1, 0])
   const y = useTransform(progress, [0, 0.15, 0.85, 1], [18, 0, 0, -18])
   const scale = useTransform(progress, [0, 0.15, 0.85, 1], [0.98, 1, 1, 0.98])
 
@@ -549,7 +549,7 @@ function StoryChapter({
 
 
   return (
-    <motion.div style={{ opacity,y , scale }} className="grid md:grid-cols-2 gap-12 items-center w-full will-change-transform">
+    <motion.div style={{ opacity,y, scale, pointerEvents }} className="grid md:grid-cols-2 gap-12 items-center w-full will-change-transform">
       <div className="space-y-4">
         <h3 className="text-3xl md:text-4xl font-bold text-balance">{title}</h3>
         <p className="text-lg text-muted-foreground text-pretty">{description}</p>
