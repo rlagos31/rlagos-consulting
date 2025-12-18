@@ -9,7 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "resend": "^4.0.0"
+    "resend": "^4.0.0",
     "@emotion/is-prop-valid": "latest",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "1.2.2",
