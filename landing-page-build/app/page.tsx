@@ -484,9 +484,10 @@ export default function RLagosConsultingPage() {
 // Scroll Story Component with Sticky Sections
 function ScrollStory() {
   const { scrollYProgress } = useScroll()
-  const chapter1Progress = useTransform(scrollYProgress, [0.1, 0.25], [0, 1])
-  const chapter2Progress = useTransform(scrollYProgress, [0.25, 0.4], [0, 1])
-  const chapter3Progress = useTransform(scrollYProgress, [0.4, 0.55], [0, 1])
+  const chapter1Progress = useTransform(scrollYProgress, [0.12, 0.20, 0.28], [0, 1, 0])
+  const chapter2Progress = useTransform(scrollYProgress, [0.28, 0.36, 0.44], [0, 1, 0])
+  const chapter3Progress = useTransform(scrollYProgress, [0.44, 0.52, 0.60], [0, 1, 0])
+
 
   return (
     <div className="relative bg-gradient-to-b from-background via-muted/20 to-background">
@@ -539,11 +540,16 @@ function StoryChapter({
   visual: React.ReactNode
   progress: any
 }) {
-  const opacity = useTransform(progress, [0, 0.5, 1], [0.3, 1, 0.3])
-  const scale = useTransform(progress, [0, 0.5, 1], [0.95, 1, 0.95])
+  const opacity = useTransform(progress, [0, 0.15, 0.85, 1], [0, 1, 1, 0])
+  const y = useTransform(progress, [0, 0.15, 0.85, 1], [18, 0, 0, -18])
+  const scale = useTransform(progress, [0, 0.15, 0.85, 1], [0.98, 1, 1, 0.98])
+
+  // prevents invisible layers from blocking the next chapter
+  const pointerEvents = useTransform(progress, [0, 0.05, 0.95, 1], ["none", "auto", "auto", "none"])
+
 
   return (
-    <motion.div style={{ opacity, scale }} className="grid md:grid-cols-2 gap-12 items-center w-full">
+    <motion.div style={{ opacity,y , scale }} className="grid md:grid-cols-2 gap-12 items-center w-full will-change-transform">
       <div className="space-y-4">
         <h3 className="text-3xl md:text-4xl font-bold text-balance">{title}</h3>
         <p className="text-lg text-muted-foreground text-pretty">{description}</p>
