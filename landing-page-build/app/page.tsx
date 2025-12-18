@@ -39,7 +39,7 @@ export default function RLagosConsultingPage() {
       <nav className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b border-border">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-xl font-semibold">RLagos Consulting</div>
+            <div className="text-xl font-semibold text-white tracking-tight">RLagos Consulting</div>
             <div className="hidden md:flex items-center gap-8">
               <a
                 href="#services"
