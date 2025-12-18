@@ -145,11 +145,7 @@ export default function RLagosConsultingPage() {
             <div className="relative rounded-3xl overflow-hidden aspect-square bg-gradient-to-br from-blue-500/20 to-purple-500/20 p-1">
               <div className="w-full h-full rounded-3xl bg-muted/50 flex items-center justify-center">
                 {/* Replace this placeholder with your actual headshot */}
-                {/* <img src="/path-to-your-headshot.jpg" alt="RLagos" className="w-full h-full object-cover rounded-3xl" /> */}
-                <div className="text-center p-8">
-                  <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-500 mb-4" />
-                  <p className="text-sm text-muted-foreground">Replace with your professional headshot</p>
-                </div>
+               <img src="/rlagos-picture.jpeg" alt="RLagos" className="w-full h-full object-cover rounded-3xl" /> 
               </div>
             </div>
           </motion.div>
