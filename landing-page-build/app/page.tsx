@@ -104,14 +104,14 @@ export default function RLagosConsultingPage() {
             className="space-y-6"
           >
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-balance">
-              Jira cleanup.
+              Clean systems.
               <br />
-              Security hardening.
+              Secure foundation.
               <br />
               <span className="text-muted-foreground">Done right.</span>
             </h1>
             <p className="text-xl text-muted-foreground text-pretty">
-              NASA-grade consulting for teams who need their Atlassian tools clean, locked down, and audit-ready.
+              Consulting informed by NASA-grade environments for teams who need Atlassian, cloud, and on-prem systems clean, locked down, and audit ready.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="rounded-full">
