@@ -490,7 +490,7 @@ function ScrollStory() {
 
 
   return (
-    <div className="relative bg-gradient-to-b from-background via-muted/20 to-background">
+    <div className="relative bg-gradient-to-b from-neutral-900 via-neutral-800 to-neutral-900">
       <div className="container mx-auto px-6 py-32">
         <div className="sticky top-32 min-h-[70vh] flex items-center justify-center">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl">
