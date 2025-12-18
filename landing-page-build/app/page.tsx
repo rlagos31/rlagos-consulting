@@ -692,32 +692,44 @@ function ContactForm() {
   })
   const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({})
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    const newErrors: { name?: string; email?: string; message?: string } = {}
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault()
 
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required"
-    }
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required"
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email"
-    }
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required"
-    }
+  const newErrors: { name?: string; email?: string; message?: string } = {}
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors)
-      return
-    }
-
-    console.log("[v0] Form submitted:", formData)
-    alert("Thank you! Your message has been sent.")
-    setFormData({ name: "", email: "", message: "" })
-    setErrors({})
+  if (!formData.name.trim()) newErrors.name = "Name is required"
+  if (!formData.email.trim()) {
+    newErrors.email = "Email is required"
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    newErrors.email = "Please enter a valid email"
   }
+  if (!formData.message.trim()) newErrors.message = "Message is required"
+
+  if (Object.keys(newErrors).length > 0) {
+    setErrors(newErrors)
+    return
+  }
+
+  setErrors({})
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+
+    if (!res.ok) throw new Error("Failed to send message")
+
+    console.log("[contact] Email sent:", formData)
+
+    setFormData({ name: "", email: "", message: "" })
+    alert("Thank you! Your message has been sent.")
+  } catch (error) {
+    console.error(error)
+    alert("Something went wrong. Please try again.")
+  }
+}
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
