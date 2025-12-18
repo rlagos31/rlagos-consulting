@@ -14,19 +14,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/rlagosICON.png",
+        url: "/ronaldlagosICON.png",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/rlagosICON.png",
+        url: "/ronaldlagosICON.png",
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/rlagosICON.png",
+        url: "/ronaldlagosICON.png",
         type: "image/svg+xml",
       },
     ],
-    apple: "/rlagosICON.png",
+    apple: "/ronaldlagosICON.png",
   },
 }
 
